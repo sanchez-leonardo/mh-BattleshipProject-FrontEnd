@@ -1,6 +1,11 @@
 module.exports = {
   devServer: {
-    proxy: "https://mh-battleship.herokuapp.com"
-  },
-  transpileDependencies: ["vuetify"]
+    proxy: {
+      "^/": {
+        target: "https://mh-battleship.herokuapp.com",
+        changeOrigin: true
+      },
+      transpileDependencies: ["vuetify"]
+    }
+  }
 };
