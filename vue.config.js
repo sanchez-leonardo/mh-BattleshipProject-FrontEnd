@@ -1,6 +1,6 @@
 module.exports = {
   devServer: {
-    port: 3030
+    proxy: "https://mh-battleship.herokuapp.com"
   },
   transpileDependencies: ["vuetify"]
 };
