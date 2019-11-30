@@ -39,7 +39,7 @@ export default {
     },
 
     createGame() {
-      customFetch("POST", "/api/games")
+      customFetch("POST", "https://mh-battleship.herokuapp.com/api/games")
         .then(response => {
           if (response.ok) {
             response.json().then(data =>

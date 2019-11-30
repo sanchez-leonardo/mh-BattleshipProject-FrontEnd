@@ -146,7 +146,9 @@ export default {
       if (window.shipsForPost.length === 5) {
         customFetch(
           "POST",
-          "/api/games/players/" + this.gpId + "/ships",
+          "https://mh-battleship.herokuapp.com/api/games/players/" +
+            this.gpId +
+            "/ships",
           [
             {
               "Content-Type": "application/json;charset=UTF-8"
@@ -178,7 +180,9 @@ export default {
       ) {
         customFetch(
           "POST",
-          "/api/games/players/" + this.gpId + "/salvoes",
+          "https://mh-battleship.herokuapp.com/api/games/players/" +
+            this.gpId +
+            "/salvoes",
           [
             {
               "Content-Type": "application/json;charset=UTF-8"

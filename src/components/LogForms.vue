@@ -94,7 +94,7 @@ export default {
 
       customFetch(
         "POST",
-        "/api/login",
+        "https://mh-battleship.herokuapp.com/api/login",
         [{ "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" }],
         formFields
       ).then(response => {
@@ -110,7 +110,7 @@ export default {
       let formFields = new URLSearchParams(this.formData);
       customFetch(
         "POST",
-        "/api/players",
+        "https://mh-battleship.herokuapp.com/api/players",
         [{ "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" }],
         formFields
       ).then(response => {
@@ -123,7 +123,10 @@ export default {
       });
     },
     logOut() {
-      customFetch("POST", "/api/logout").then(response => {
+      customFetch(
+        "POST",
+        "https://mh-battleship.herokuapp.com/api/logout"
+      ).then(response => {
         if (response.ok) {
           this.getGamesInfo();
           if (this.$route.path !== "/") {

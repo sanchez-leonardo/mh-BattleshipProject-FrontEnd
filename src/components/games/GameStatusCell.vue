@@ -20,7 +20,10 @@ export default {
 
   methods: {
     joinGame(gameId) {
-      return customFetch("POST", "/api/game/" + gameId + "/players")
+      return customFetch(
+        "POST",
+        "https://mh-battleship.herokuapp.com/api/game/" + gameId + "/players"
+      )
         .then(response => response.json())
         .then(data => data.gpId.toString());
     },

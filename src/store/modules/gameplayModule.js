@@ -109,13 +109,13 @@ const mutations = {
 
 const actions = {
   getGameViewInfo({ commit }, gpId) {
-    fetch("/api/game_view/" + gpId)
+    fetch("https://mh-battleship.herokuapp.com/api/game_view/" + gpId)
       .then(response => response.json())
       .then(data => commit(SET_GAME_VIEW_INFO, data));
   },
 
   getGameState({ commit }, gpId) {
-    fetch("/api/game_state/" + gpId)
+    fetch("https://mh-battleship.herokuapp.com/api/game_state/" + gpId)
       .then(response => response.json())
       .then(data => commit(SET_GAME_STATE_INFO, data));
   },
