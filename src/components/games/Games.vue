@@ -39,7 +39,11 @@ export default {
     },
 
     createGame() {
-      customFetch("POST", "https://mh-battleship.herokuapp.com/api/games")
+      customFetch("POST", "https://mh-battleship.herokuapp.com/api/games", [
+        {
+          "Access-Control-Allow-Origin": "*"
+        }
+      ])
         .then(response => {
           if (response.ok) {
             response.json().then(data =>

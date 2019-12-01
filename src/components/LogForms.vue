@@ -95,7 +95,10 @@ export default {
       customFetch(
         "POST",
         "https://mh-battleship.herokuapp.com/api/login",
-        [{ "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" }],
+        [
+          { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+          { "Access-Control-Allow-Origin": "*" }
+        ],
         formFields
       ).then(response => {
         if (response.ok) {
@@ -111,7 +114,10 @@ export default {
       customFetch(
         "POST",
         "https://mh-battleship.herokuapp.com/api/players",
-        [{ "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" }],
+        [
+          { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+          { "Access-Control-Allow-Origin": "*" }
+        ],
         formFields
       ).then(response => {
         if (response.ok) {
