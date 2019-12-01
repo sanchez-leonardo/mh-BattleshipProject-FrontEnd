@@ -20,12 +20,11 @@ export async function customFetch(
 
         init = {
           method: "POST",
-          mode: "cors",
           headers: headerObj,
           body: reqBody
         };
       } else {
-        init = { method: "POST", mode: "cors" };
+        init = { method: "POST" };
       }
   }
 

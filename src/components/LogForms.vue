@@ -95,10 +95,7 @@ export default {
       customFetch(
         "POST",
         "https://mh-battleship.herokuapp.com/api/login",
-        [
-          { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
-          { "Access-Control-Allow-Origin": "*" }
-        ],
+        [{ "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" }],
         formFields
       ).then(response => {
         if (response.ok) {
@@ -114,10 +111,7 @@ export default {
       customFetch(
         "POST",
         "https://mh-battleship.herokuapp.com/api/players",
-        [
-          { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
-          { "Access-Control-Allow-Origin": "*" }
-        ],
+        [{ "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" }],
         formFields
       ).then(response => {
         if (response.ok) {
@@ -129,9 +123,10 @@ export default {
       });
     },
     logOut() {
-      customFetch("POST", "https://mh-battleship.herokuapp.com/api/logout", [
-        { "Access-Control-Allow-Origin": "*" }
-      ]).then(response => {
+      customFetch(
+        "POST",
+        "https://mh-battleship.herokuapp.com/api/logout"
+      ).then(response => {
         if (response.ok) {
           this.getGamesInfo();
           if (this.$route.path !== "/") {
