@@ -22,7 +22,8 @@ export default {
     joinGame(gameId) {
       return customFetch(
         "POST",
-        "https://mh-battleship.herokuapp.com/api/game/" + gameId + "/players".[{'Access-Control-Allow-Origin':'*',}]
+        "https://mh-battleship.herokuapp.com/api/game/" + gameId + "/players",
+        [{ "Access-Control-Allow-Origin": "*" }]
       )
         .then(response => response.json())
         .then(data => data.gpId.toString());

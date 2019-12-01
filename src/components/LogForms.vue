@@ -129,10 +129,9 @@ export default {
       });
     },
     logOut() {
-      customFetch(
-        "POST",
-        "https://mh-battleship.herokuapp.com/api/logout"
-      ).then(response => {
+      customFetch("POST", "https://mh-battleship.herokuapp.com/api/logout", [
+        { "Access-Control-Allow-Origin": "*" }
+      ]).then(response => {
         if (response.ok) {
           this.getGamesInfo();
           if (this.$route.path !== "/") {
