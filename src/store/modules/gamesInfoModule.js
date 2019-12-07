@@ -24,7 +24,10 @@ const mutations = {
 
 const actions = {
   getLeaderboardInfo({ commit }) {
-    fetch("https://mh-battleship.herokuapp.com/api/leaderboard")
+    fetch("https://mh-battleship.herokuapp.com/api/leaderboard", {
+      method: "GET",
+      credentials: "include"
+    })
       .then(response => response.json())
       .then(data => {
         commit(SET_LEADERBOARD_INFO, data);
@@ -32,7 +35,10 @@ const actions = {
   },
 
   getGamesInfo({ commit }) {
-    fetch("https://mh-battleship.herokuapp.com/api/games")
+    fetch("https://mh-battleship.herokuapp.com/api/games", {
+      method: "GET",
+      credentials: "include"
+    })
       .then(response => response.json())
       .then(data => {
         commit(SET_GAMES_INFO, data);

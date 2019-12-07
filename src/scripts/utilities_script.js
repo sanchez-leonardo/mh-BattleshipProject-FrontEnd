@@ -8,7 +8,7 @@ export async function customFetch(
 
   switch (reqMethod) {
     case "GET":
-      init = { method: "GET" };
+      init = { method: "GET", credentials: "include" };
       break;
 
     case "POST":
@@ -21,10 +21,11 @@ export async function customFetch(
         init = {
           method: "POST",
           headers: headerObj,
+          credentials: "include",
           body: reqBody
         };
       } else {
-        init = { method: "POST" };
+        init = { method: "POST", credentials: "include" };
       }
   }
 
