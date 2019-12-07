@@ -79,7 +79,7 @@ export default {
         userName => emailIsValid(userName) || "Please, use a valid email"
       ],
       passwordRules: [
-        password => password.length > 6 || "Password must be 6 characters long"
+        password => password.length > 5 || "Password must be 6 characters long"
       ]
     };
   },
