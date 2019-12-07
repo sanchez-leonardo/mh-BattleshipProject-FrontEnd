@@ -79,7 +79,7 @@ export default {
         userName => emailIsValid(userName) || "Please, use a valid email"
       ],
       passwordRules: [
-        password => password.length > 2 || "Password must be 6 characters long"
+        password => password.length > 6 || "Password must be 6 characters long"
       ]
     };
   },
@@ -134,7 +134,7 @@ export default {
           }
         } else {
           this.dialogMessage =
-            "I have no idea how you posible failed at logging out...";
+            "I have no idea how you posibly failed at logging out...";
           this.dialog = !this.dialog;
         }
       });
