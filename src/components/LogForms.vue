@@ -90,37 +90,61 @@ export default {
     ...mapActions(["getGamesInfo"]),
 
     logIn() {
-      let formFields = new URLSearchParams(this.formData);
+      if (
+        emailIsValid(this.formData.userName) &&
+        this.formData.password.length > 5
+      ) {
+        let formFields = new URLSearchParams(this.formData);
 
-      customFetch(
-        "POST",
-        "https://mh-battleship.herokuapp.com/api/login",
-        [{ "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" }],
-        formFields
-      ).then(response => {
-        if (response.ok) {
-          this.getGamesInfo();
-        } else {
-          this.dialogMessage = "Incorrect password or username";
-          this.dialog = !this.dialog;
-        }
-      });
+        customFetch(
+          "POST",
+          "https://mh-battleship.herokuapp.com/api/login",
+          [
+            {
+              "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+            }
+          ],
+          formFields
+        ).then(response => {
+          if (response.ok) {
+            this.getGamesInfo();
+          } else {
+            this.dialogMessage = "Incorrect password or username";
+            this.dialog = !this.dialog;
+          }
+        });
+      } else {
+        this.dialogMessage = "Complete each field accordingly";
+        this.dialog = !this.dialog;
+      }
     },
     signUp() {
-      let formFields = new URLSearchParams(this.formData);
-      customFetch(
-        "POST",
-        "https://mh-battleship.herokuapp.com/api/players",
-        [{ "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" }],
-        formFields
-      ).then(response => {
-        if (response.ok) {
-          this.logIn();
-        } else {
-          this.dialogMessage = "Username already in use, most likely";
-          this.dialog = !this.dialog;
-        }
-      });
+      if (
+        emailIsValid(this.formData.userName) &&
+        this.formData.password.length > 5
+      ) {
+        let formFields = new URLSearchParams(this.formData);
+        customFetch(
+          "POST",
+          "https://mh-battleship.herokuapp.com/api/players",
+          [
+            {
+              "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+            }
+          ],
+          formFields
+        ).then(response => {
+          if (response.ok) {
+            this.logIn();
+          } else {
+            this.dialogMessage = "Username already in use, most likely";
+            this.dialog = !this.dialog;
+          }
+        });
+      } else {
+        this.dialogMessage = "Complete each field accordingly";
+        this.dialog = !this.dialog;
+      }
     },
     logOut() {
       customFetch(
